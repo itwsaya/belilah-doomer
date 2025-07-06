@@ -1,0 +1,433 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+.bottom-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 100%;
+}
+body {
+  background-color: hsl(240, 3%, 7%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 1em;
+  font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+}
+.keyboard {
+  grid-auto-rows: 3.5em; /* Default for mobile */
+
+  display: grid;
+  grid-template-columns: repeat(20, minmax(0, 1fr));
+  grid-auto-rows: 5.0em; /* Increased from 3em to 3.5em */
+  gap: 0.25em;
+  justify-content: stretch;
+  align-items: stretch;
+  width: 100%;
+  margin: 0;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  box-sizing: border-box;
+}
+
+@media (min-width: 700px) {
+  .keyboard {
+    grid-auto-rows: 2.5em; /* Smaller on desktop */
+  }
+}
+
+.key {
+  font-size: 2.2em;
+  grid-column: span 2;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(
+    var(--hue, 200),
+    var(--saturation, 1%),
+    calc(var(--lightness-offset, 0%) + var(--lightness, 51%))
+  );
+  color: white;
+  fill: white;
+  text-transform: uppercase;
+  border-radius: 0.25em;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold; /* <-- Add this line */
+}
+
+/* Make Enter and Delete keys a different font size if you want: */
+.key.large {
+  font-size: 1.5em; /* or your preferred size for large keys */
+  grid-column: span 3;
+
+}
+
+.key > svg {
+  width: 1.75em;
+  height: 1.75em;
+}
+
+.key:hover,
+.key:focus {
+  --lightness-offset: 10%;
+}
+
+.key.wrong {
+  --lightness: 23%;
+}
+
+.key.wrong-location {
+  --hue: 49;
+  --saturation: 51%;
+  --lightness: 47%;
+}
+
+.key.correct {
+  --hue: 115;
+  --saturation: 29%;
+  --lightness: 43%;
+}
+
+.guess-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  flex-grow: 1;
+  grid-template-columns: repeat(5, 4em);
+  grid-template-rows: repeat(6, 4em);
+  gap: 0.25em;
+  margin-bottom: 1em;
+}
+
+.tile {
+  font-size: 2em;
+  color: white;
+  border: 0.05em solid hsl(240, 2%, 23%);
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: transform 250ms linear;
+}
+
+.tile[data-state="active"] {
+  border-color: hsl(200, 1%, 34%);
+}
+
+.tile[data-state="wrong"] {
+  border: none;
+  background-color: hsl(240, 2%, 23%);
+}
+
+.tile[data-state="wrong-location"] {
+  border: none;
+  background-color: hsl(49, 51%, 47%);
+}
+
+.tile[data-state="correct"] {
+  border: none;
+  background-color: hsl(115, 29%, 43%);
+}
+
+.tile.shake {
+  animation: shake 250ms ease-in-out;
+}
+
+.tile.dance {
+  animation: dance 500ms ease-in-out;
+}
+
+.tile.flip {
+  transform: rotateX(90deg);
+}
+
+@keyframes shake {
+  10% {
+    transform: translateX(-5%);
+  }
+
+  30% {
+    transform: translateX(5%);
+  }
+
+  50% {
+    transform: translateX(7.5%);
+  }
+
+  70% {
+    transform: translateX(7.5%);
+  }
+
+  90% {
+    transform: translateX(5%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes dance {
+  20% {
+    transform: translateY(-50%);
+  }
+
+  40% {
+    transform: translateY(5%);
+  }
+
+  60% {
+    transform: translateY(-25%);
+  }
+
+  80% {
+    transform: translateY(2.5%);
+  }
+
+  90% {
+    transform: translateY(-5%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.alert-container {
+  position: fixed;
+  top: 10vh;
+  left: 50vw;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alert {
+  pointer-events: none;
+  background-color: hsl(204, 7%, 85%);
+  padding: 0.75em;
+  border-radius: 0.25em;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+  margin-bottom: 0.5em;
+}
+
+.alert:last-child {
+  margin-bottom: 0;
+}
+
+.alert.hide {
+  opacity: 0;
+}
+/* ...existing code... */
+
+body {
+  background-color: hsl(240, 3%, 7%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh; /* Use dynamic viewport height */
+  height: 100dvh;
+  margin: 0;
+  padding: 1em;
+  font-size: clamp(0.5rem, 2.5vmin, 1.5rem);
+}
+.guess-container {
+  /* max-height: 40vh; */ /* Remove this line */
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 2px solid hsl(240, 2%, 23%);
+  border-radius: 0.5em;
+  background: hsl(240, 3%, 12%);
+  padding: 1em;
+  margin-bottom: 1em;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.guess-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.guess-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.bottom-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-top: auto;
+  width: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.guess-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15em;
+  justify-content: center;
+  max-width: calc(2.2em * 10 + 1.5em); /* Match input-area width */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ...existing code... */
+
+.input-area,
+.guess-row {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  max-width: 100%;
+  gap: 0.15em;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+
+.input-char,
+.guess-char {
+  min-width: 2em;
+  max-width: 2em;
+  min-height: 2.5em;
+  font-size: 2em; /* Increase from 1.5em to 2em or as desired */
+  color: white;
+  border: 0.05em solid hsl(240, 2%, 23%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.2em;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: none;
+  user-select: none;
+  transition: background 0.2s;
+  box-sizing: border-box;
+}
+/* ...existing code... */
+
+.input-char[data-grammar],
+.guess-char[data-grammar] {
+  background: none;
+  color: hsl(240, 2%, 50%);
+  border: none;
+  pointer-events: none;
+}
+
+.guess-char.correct {
+  color: #fff;
+  background: hsl(115, 29%, 43%);
+}
+.guess-char.wrong-location {
+  color: #fff;
+  background: hsl(49, 51%, 47%);
+}
+.guess-char.wrong {
+  color: #fff;
+  background: hsl(240, 2%, 23%);
+}
+
+/* ...existing code... */
+
+/* Add to styles.css */
+.input-underline {
+  border-bottom: 0.15em solid hsl(240, 2%, 50%);
+}
+
+.word-group {
+  display: flex;
+  flex-direction: row;
+}
+
+
+/* Add to styles.css */
+
+
+
+/* 1) Make the input‑area a vertical stack of lines */
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;           /* space between lines */
+  width: 100%;          
+  /* remove any overflow-x, white-space, or nowrap here */
+}
+
+/* 2) Ensure each input-line spans the full width */
+.input-line {
+  display: flex;
+  flex-wrap: nowrap;    /* your code already ensures groups never exceed maxPerLine */
+  width: 100%;
+  gap: 0.15em;          /* spacing between tiles */
+  justify-content: center; /* or space-between, or flex-start—up to you */
+}
+
+/* 3) Tile sizes stay the same; you already have: */
+.input-char {
+  box-sizing: border-box;
+  min-width: 2em;
+  max-width: 2em;
+  /* …etc… */
+}
+
+/* all your existing .input-char/.guess-char rules still apply */
+
+/* override underline */
+.input-space.input-underline {
+  border-bottom: none;
+}
+
+.guess-line {
+  display: flex;
+  gap: 0.15em;
+  justify-content: center; /* center or left-align */
+}
+
+.guess-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em; /* space between lines of the same guess */
+}
+
+/* keep your existing .guess-char, .input-space, .input-underline, .correct, etc. */
+.input-char,
+.guess-char {
+  /* ...existing code... */
+  font-size: 1.8em; /* Change this value to your preferred size */
+  /* ...existing code... */
+}
+
+.tile {
+  /* ...existing code... */
+  font-size: 1.8em; /* Change this value to your preferred size */
+  /* ...existing code... */
+}
