@@ -174,15 +174,20 @@ function stopInteraction() {
 }
 
 function handleMouseClick(e) {
-  if (e.target.matches("[data-key]")) {
-    pressKey(e.target.dataset.key);
+  // Find the closest ancestor with data-key, data-enter, or data-delete
+  const keyBtn = e.target.closest("[data-key]");
+  const enterBtn = e.target.closest("[data-enter]");
+  const deleteBtn = e.target.closest("[data-delete]");
+
+  if (keyBtn) {
+    pressKey(keyBtn.dataset.key);
     return;
   }
-  if (e.target.matches("[data-enter]")) {
+  if (enterBtn) {
     submitGuess();
     return;
   }
-  if (e.target.matches("[data-delete]")) {
+  if (deleteBtn) {
     deleteKey();
     return;
   }
