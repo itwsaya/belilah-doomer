@@ -316,10 +316,10 @@ body {
 
 .input-char,
 .guess-char {
-  min-width: 2em;
-  max-width: 2em;
-  min-height: 2.5em;
-  font-size: 2em; /* Increase from 1.5em to 2em or as desired */
+  min-width: 1.6em;    /* was 2em */
+  max-width: 1.6em;    /* was 2em */
+  min-height: 2em;     /* was 2.5em */
+  font-size: 1.4em;
   color: white;
   border: 0.05em solid hsl(240, 2%, 23%);
   display: flex;
@@ -428,6 +428,6 @@ body {
 
 .tile {
   /* ...existing code... */
-  font-size: 1.8em; /* Change this value to your preferred size */
+  font-size: 1.4em;    /* was 1.8em or 2em */
   /* ...existing code... */
 }
