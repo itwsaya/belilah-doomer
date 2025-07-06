@@ -1,5 +1,5 @@
 const targetWords = [
-  "everything is better with you",
+  "everything is better with you!",
   "i love being with you",
   "you make my heart happy",
   "you are my sunshine",
