@@ -27,7 +27,7 @@ body {
 
   display: grid;
   grid-template-columns: repeat(20, minmax(0, 1fr));
-  grid-auto-rows: 5.0em; /* Increased from 3em to 3.5em */
+  grid-auto-rows: 5em; /* Increased from 3em to 3.5em */
   gap: 0.25em;
   justify-content: stretch;
   align-items: stretch;
@@ -70,7 +70,6 @@ body {
 .key.large {
   font-size: 1.5em; /* or your preferred size for large keys */
   grid-column: span 3;
-
 }
 
 .key > svg {
@@ -123,21 +122,21 @@ body {
   transition: transform 250ms linear;
 }
 
-.tile[data-state="active"] {
+.tile[data-state='active'] {
   border-color: hsl(200, 1%, 34%);
 }
 
-.tile[data-state="wrong"] {
+.tile[data-state='wrong'] {
   border: none;
   background-color: hsl(240, 2%, 23%);
 }
 
-.tile[data-state="wrong-location"] {
+.tile[data-state='wrong-location'] {
   border: none;
   background-color: hsl(49, 51%, 47%);
 }
 
-.tile[data-state="correct"] {
+.tile[data-state='correct'] {
   border: none;
   background-color: hsl(115, 29%, 43%);
 }
@@ -313,13 +312,14 @@ body {
   white-space: nowrap;
 }
 
-
 .input-char,
 .guess-char {
-  min-width: 1.6em;    /* was 2em */
-  max-width: 1.6em;    /* was 2em */
-  min-height: 2em;     /* was 2.5em */
-  font-size: 1.4em;
+  min-width: 1.6em; /* was 2em */
+  max-width: 1.6em; /* was 2em */
+  min-height: 2.4em; /* Increase this value for more height */
+  max-height: 2.4em;
+  min-height: 2em; /* was 2.5em */
+  font-size: 1.1em;
   color: white;
   border: 0.05em solid hsl(240, 2%, 23%);
   display: flex;
@@ -368,34 +368,29 @@ body {
   flex-direction: row;
 }
 
-
 /* Add to styles.css */
-
-
 
 /* 1) Make the input‑area a vertical stack of lines */
 .input-area {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;           /* space between lines */
-  width: 100%;          
+  gap: 0.5em; /* space between lines */
+  width: 100%;
   /* remove any overflow-x, white-space, or nowrap here */
 }
 
 /* 2) Ensure each input-line spans the full width */
 .input-line {
   display: flex;
-  flex-wrap: nowrap;    /* your code already ensures groups never exceed maxPerLine */
+  flex-wrap: nowrap; /* your code already ensures groups never exceed maxPerLine */
   width: 100%;
-  gap: 0.15em;          /* spacing between tiles */
+  gap: 0.15em; /* spacing between tiles */
   justify-content: center; /* or space-between, or flex-start—up to you */
 }
 
 /* 3) Tile sizes stay the same; you already have: */
 .input-char {
   box-sizing: border-box;
-  min-width: 2em;
-  max-width: 2em;
   /* …etc… */
 }
 
@@ -428,6 +423,27 @@ body {
 
 .tile {
   /* ...existing code... */
-  font-size: 1.4em;    /* was 1.8em or 2em */
+  font-size: 1.4em; /* was 1.8em or 2em */
   /* ...existing code... */
+}
+/*
+.key-count {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.7em;
+  opacity: 0.7;
+  pointer-events: none;
+}*/
+
+.key-badge {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.7em;
+  background: #eee;
+  color: #222;
+  border-radius: 50%;
+  padding: 2px 5px;
+  pointer-events: none;
 }

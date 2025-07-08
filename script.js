@@ -16,8 +16,25 @@ const phraseSlots = parsePhrase(targetPhrase)
   .map((slot, i) => ({ ...slot, index: i }));
 let currentGuess = Array(phraseSlots.length).fill(""); // Only for letters
 
+// --- New state for letter counting ---
+const targetLetterCounts = {};
+for (const slot of phraseSlots) {
+  if (!slot.isGrammar) {
+    const ch = slot.char;
+    targetLetterCounts[ch] = (targetLetterCounts[ch] || 0) + 1;
+  }
+}
+const correctLetterPlacements = {};
+const guessedLetterCounts = {};
+function resetGuessTracking() {
+  for (const key in correctLetterPlacements) delete correctLetterPlacements[key];
+  for (const key in guessedLetterCounts) delete guessedLetterCounts[key];
+}
+// --- End new state ---
+
 startInteraction();
 renderInputArea();
+
 function makeIndexGroups(slots) {
   const groups = [];
   let i = 0;
@@ -32,7 +49,6 @@ function makeIndexGroups(slots) {
   }
   return groups;
 }
-
 
 function parsePhrase(phrase) {
   // Returns [{char, isGrammar}]
@@ -101,6 +117,7 @@ function renderInputArea() {
   trimTrailingSpaceTile(lineEl);
   inputArea.appendChild(lineEl);
 }
+
 function renderGuessRow(guessArr, resultArr) {
   const maxPerLine = getMaxTilesPerLine();
   const groups     = makeIndexGroups(phraseSlots);
@@ -144,7 +161,7 @@ function renderGuessRow(guessArr, resultArr) {
         const state = resultArr[idx];
         if (state) {
           el.classList.add(state);
-          updateKeyboardColor(guessArr[idx], state);
+          updateKeyboardColor(guessArr[idx]);
         }
       }
 
@@ -161,7 +178,6 @@ function renderGuessRow(guessArr, resultArr) {
   guessList.appendChild(guessBlock);
   guessList.scrollTop = guessList.scrollHeight;
 }
-
 
 function startInteraction() {
   document.addEventListener("click", handleMouseClick);
@@ -271,21 +287,29 @@ function evaluateGuess(guessArr, slots, target) {
   const guessLetters = [];
   const targetLetters = [];
 
+  // Reset tracking for this guess
+  resetGuessTracking();
+
   for (let i = 0; i < slots.length; i++) {
     if (!slots[i].isGrammar) {
       guessLetters.push(guessArr[i]);
       targetLetters.push(targetArr[i]);
+      guessedLetterCounts[guessArr[i]] = (guessedLetterCounts[guessArr[i]] || 0) + 1;
     }
   }
 
   const letterStates = Array(guessLetters.length).fill("");
   const usedTarget = Array(targetLetters.length).fill(false);
+
+  // First pass: correct placements
   for (let i = 0; i < guessLetters.length; i++) {
     if (guessLetters[i] === targetLetters[i]) {
       letterStates[i] = "correct";
       usedTarget[i] = true;
+      correctLetterPlacements[guessLetters[i]] = (correctLetterPlacements[guessLetters[i]] || 0) + 1;
     }
   }
+  // Second pass: wrong-location
   for (let i = 0; i < guessLetters.length; i++) {
     if (letterStates[i]) continue;
     const idx = targetLetters.findIndex(
@@ -305,31 +329,55 @@ function evaluateGuess(guessArr, slots, target) {
       result.push("");
     } else {
       result.push(letterStates[letterIdx]);
-      updateKeyboardColor(guessArr[i], letterStates[letterIdx]);
+      updateKeyboardColor(guessArr[i]);
       letterIdx++;
     }
   }
   return result;
 }
-
-function updateKeyboardColor(letter, state) {
+function updateKeyboardColor(letter) {
   const key = keyboard.querySelector(`[data-key="${letter}"]`);
   if (!key) return;
-  if (state === "correct") {
+
+  // Remove any previous badge
+  let badge = key.querySelector(".key-badge");
+  if (badge) badge.remove();
+
+  // Always show badge after first guess, even if count is 0 (for the "cute little blank icon")
+  if (guessedLetterCounts[letter] > 0) {
+    badge = document.createElement("span");
+    badge.className = "key-badge";
+    badge.textContent = (letter in targetLetterCounts) ? targetLetterCounts[letter] : "";
+    badge.style.position = "absolute";
+    badge.style.top = "2px";
+    badge.style.right = "4px";
+    badge.style.fontSize = "0.7em";
+    badge.style.background = "#eee";
+    badge.style.borderRadius = "50%";
+    badge.style.padding = "2px 5px";
+    key.style.position = "relative";
+    key.appendChild(badge);
+  }
+
+  // Coloring logic
+  const correct = correctLetterPlacements[letter] || 0;
+  const needed = targetLetterCounts[letter] || 0;
+
+  if (needed === 0 && guessedLetterCounts[letter] > 0) {
+    // Letter does not exist in phrase, keep it grey
+    key.classList.remove("correct", "wrong-location");
+    key.classList.add("wrong");
+  } else if (correct >= needed && needed > 0) {
     key.classList.remove("wrong", "wrong-location");
     key.classList.add("correct");
-  } else if (state === "wrong-location") {
-    if (!key.classList.contains("correct")) {
-      key.classList.remove("wrong");
-      key.classList.add("wrong-location");
-    }
-  } else if (state === "wrong") {
-    if (!key.classList.contains("correct") && !key.classList.contains("wrong-location")) {
-      key.classList.add("wrong");
-    }
+  } else if (guessedLetterCounts[letter] > 0 && needed > 0) {
+    key.classList.remove("wrong", "correct");
+    key.classList.add("wrong-location");
+  } else {
+    key.classList.remove("correct", "wrong-location");
+    key.classList.add("wrong");
   }
 }
-
 function showAlert(message, duration = 1000) {
   const alert = document.createElement("div");
   alert.textContent = message;
@@ -372,7 +420,6 @@ function getMaxTilesPerLine() {
   // how many full (tile + gap) chunks fit?
   return Math.floor((containerWidth + gap) / (tileWidth + gap));
 }
-
 
 function makeGroups(slots) {
   const groups = [];
