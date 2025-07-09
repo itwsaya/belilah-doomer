@@ -335,6 +335,14 @@ function evaluateGuess(guessArr, slots, target) {
   }
   return result;
 }
+
+// Helper to get how many of a letter remain unsolved
+function getRemainingToSolve(letter) {
+  const needed = targetLetterCounts[letter] || 0;
+  const solved = correctLetterPlacements[letter] || 0;
+  return Math.max(needed - solved, 0);
+}
+
 function updateKeyboardColor(letter) {
   const key = keyboard.querySelector(`[data-key="${letter}"]`);
   if (!key) return;
@@ -347,7 +355,7 @@ function updateKeyboardColor(letter) {
   if (guessedLetterCounts[letter] > 0) {
     badge = document.createElement("span");
     badge.className = "key-badge";
-    badge.textContent = (letter in targetLetterCounts) ? targetLetterCounts[letter] : "";
+    badge.textContent = (letter in targetLetterCounts) ? getRemainingToSolve(letter) : "";
     badge.style.position = "absolute";
     badge.style.top = "2px";
     badge.style.right = "4px";
@@ -378,6 +386,7 @@ function updateKeyboardColor(letter) {
     key.classList.add("wrong");
   }
 }
+
 function showAlert(message, duration = 1000) {
   const alert = document.createElement("div");
   alert.textContent = message;
