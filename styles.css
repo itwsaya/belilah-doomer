@@ -411,6 +411,16 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5em; /* space between lines of the same guess */
+  border-bottom: 2px solid hsl(240, 2%, 23%);
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Remove border from the last guess-block */
+.guess-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* keep your existing .guess-char, .input-space, .input-underline, .correct, etc. */
