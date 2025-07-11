@@ -4,6 +4,9 @@ const targetWords = [
   "A person's mood can also be influenced by LSD.",
   "let us see the probability you seeing me on tv",
   "belilah doomer",
+  "by way of community college",
+  "loveland, colorado",
+  "call me a good girl and i'll be all yours",
   "i love you",
   "you make me so happy",
 ];
