@@ -5,6 +5,7 @@ const targetWords = [
   "let us see the probability you seeing me on tv",
   "belilah doomer",
   "by way of community college",
+  "",
   "call me a good girl and i'll be all yours",
   "loveland, colorado",
   "i love you",
