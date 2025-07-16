@@ -8,6 +8,7 @@ const targetWords = [
   "",
   "call me a good girl and i'll be all yours",
   "loveland, colorado",
+  "i'll break you when i see you again",
   "i love you",
   "you make me so happy",
 ];
