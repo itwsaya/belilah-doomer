@@ -10,6 +10,7 @@ const targetWords = [
   "loveland, colorado",
   "i'll break you when i see you again",
   "i love you",
+  "kiss me, you fool",
   "you make me so happy",
 ];
 
