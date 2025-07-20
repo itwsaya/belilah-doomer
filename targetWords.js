@@ -11,6 +11,7 @@ const targetWords = [
   "i'll break you when i see you again",
   "i love you",
   "",
+  "",
   "pinning you down and making you mine",
   "you make me so happy",
 ];
