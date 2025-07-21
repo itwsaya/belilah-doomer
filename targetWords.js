@@ -13,6 +13,7 @@ const targetWords = [
   "",
   "",
   "pinning you down and making you mine",
+  "",
   "you make me so happy",
 ];
 
