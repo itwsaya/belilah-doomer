@@ -15,6 +15,8 @@ const targetWords = [
   "pinning you down and making you mine",
   "",
   "you make me so happy",
+  "",
+  "choke me harder"
 ];
 
 export default targetWords;
