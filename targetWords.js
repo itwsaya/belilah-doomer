@@ -16,7 +16,9 @@ const targetWords = [
   "",
   "you make me so happy",
   "",
-  "choke me harder"
+  "choke me harder",
+  "",
+  "i want to treat you better in every way"
 ];
 
 export default targetWords;
