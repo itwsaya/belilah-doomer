@@ -19,7 +19,8 @@ const targetWords = [
   "choke me harder",
   "",
   "i want to treat you better in every way",
-  "do you want to see my boobs?"
+  "do you want to see my boobs?",
+  "did you like my boobs?"
 ];
 
 export default targetWords;
