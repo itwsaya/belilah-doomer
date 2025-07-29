@@ -20,7 +20,8 @@ const targetWords = [
   "",
   "i want to treat you better in every way",
   "do you want to see my boobs?",
-  "did you like my boobs?"
+  "did you like my boobs?",
+  "well, i love you"
 ];
 
 export default targetWords;
