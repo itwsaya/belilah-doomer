@@ -22,7 +22,8 @@ const targetWords = [
   "do you want to see my boobs?",
   "did you like my boobs?",
   "well, i love you",
-  "she foia on my records till i release everything under pressure"
+  "she foia on my records till i release everything under pressure",
+  "kiss me harder ^-^"
 ];
 
 export default targetWords;
