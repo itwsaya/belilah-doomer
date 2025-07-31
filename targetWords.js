@@ -23,7 +23,8 @@ const targetWords = [
   "did you like my boobs?",
   "well, i love you",
   "she foia on my records till i release everything under pressure",
-  "kiss me harder ^-^"
+  "kiss me harder ^-^",
+  "Spooky season takes over DPMHS"
 ];
 
 export default targetWords;
