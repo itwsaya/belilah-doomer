@@ -24,7 +24,8 @@ const targetWords = [
   "well, i love you",
   "she foia on my records till i release everything under pressure",
   "kiss me harder ^-^",
-  "Spooky season takes over DPMHS"
+  "Spooky season takes over DPMHS",
+  "THE BESTEST GIRLFRIEND EVER"
 ];
 
 export default targetWords;
