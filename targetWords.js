@@ -27,7 +27,8 @@ const targetWords = [
   "Spooky season takes over DPMHS",
   "THE BESTEST GIRLFRIEND EVER",
   "the prettiest rose in the garden",
-  "the promenade shops at centerra"
+  "the promenade shops at centerra",
+  "all i want is you"
 ];
 
 export default targetWords;
