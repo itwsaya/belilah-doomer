@@ -28,6 +28,7 @@ const targetWords = [
   "THE BESTEST GIRLFRIEND EVER",
   "the prettiest rose in the garden",
   "the promenade shops at centerra",
+  "",
   "all i want is you"
 ];
 
