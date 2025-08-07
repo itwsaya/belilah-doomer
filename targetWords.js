@@ -29,7 +29,8 @@ const targetWords = [
   "the prettiest rose in the garden",
   "the promenade shops at centerra",
   "",
-  "all i want is you"
+  "all i want is you",
+  "roygbiv"
 ];
 
 export default targetWords;
