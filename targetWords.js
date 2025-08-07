@@ -30,7 +30,8 @@ const targetWords = [
   "the promenade shops at centerra",
   "",
   "all i want is you",
-  "roygbiv"
+  "roygbiv",
+  "kiss kiss fall in love"
 ];
 
 export default targetWords;
