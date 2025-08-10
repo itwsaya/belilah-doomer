@@ -32,7 +32,8 @@ const targetWords = [
   "all i want is you",
   "roygbiv",
   "kiss kiss fall in love",
-  "make every day a good day"
+  "make every day a good day",
+  "it's giving positive vibes"
 ];
 
 export default targetWords;
