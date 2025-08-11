@@ -34,6 +34,7 @@ const targetWords = [
   "kiss kiss fall in love",
   "make every day a good day",
   "it's giving positive vibes",
+  "whore",
   "stunningly beautiful and gorgeous beyond compare"
 ];
 
