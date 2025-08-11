@@ -1,3 +1,15 @@
+/* Style for the main title */
+.main-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #f8f8f8;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 1px 0 #222;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+}
 *,
 *::after,
 *::before {
