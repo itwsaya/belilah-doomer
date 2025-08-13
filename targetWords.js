@@ -35,7 +35,8 @@ const targetWords = [
   "make every day a good day",
   "it's giving positive vibes",
   "whore",
-  "stunningly beautiful and gorgeous beyond compare"
+  "stunningly beautiful and gorgeous beyond compare",
+  "late night talker"
 ];
 
 export default targetWords;
