@@ -37,7 +37,8 @@ const targetWords = [
   "whore",
   "stunningly beautiful and gorgeous beyond compare",
   "late night talker",
-  "silly subby delilah"
+  "silly subby delilah",
+  "delilah, delilah, delilah, delilah delilah"
 ];
 
 export default targetWords;
