@@ -39,7 +39,8 @@ const targetWords = [
   "late night talker",
   "silly subby delilah",
   "delilah, delilah, delilah, delilah delilah",
-  "pink lemonade"
+  "",
+  "i'd let you drink from my cup if you're ever thirsty"
 ];
 
 export default targetWords;
