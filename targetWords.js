@@ -43,7 +43,8 @@ const targetWords = [
   "i'd let you drink from my cup if you're ever thirsty",
   "pink lemonade",
   "absolutely positively gorgeous",
-  "what a yapper"
+  "what a yapper",
+  "spanking, hair pulling, pinning you down roughly"
 ];
 
 export default targetWords;
