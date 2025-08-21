@@ -44,7 +44,8 @@ const targetWords = [
   "pink lemonade",
   "absolutely positively gorgeous",
   "what a yapper",
-  "spanking, hair pulling, pinning you down roughly"
+  "spanking, hair pulling, pinning you down roughly",
+  "delilah rose, how does your garden grow?"
 ];
 
 export default targetWords;
