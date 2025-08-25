@@ -47,8 +47,8 @@ const targetWords = [
   "spanking, hair pulling, pinning you down roughly",
   "delilah rose, how does your garden grow?",
   "",
-  "",
-  "ur so kissable ehe"
+  "ur so kissable ehe",
+  "i need you to pin you badly"
 ];
 
 export default targetWords;
