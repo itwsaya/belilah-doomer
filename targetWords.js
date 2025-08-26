@@ -49,7 +49,8 @@ const targetWords = [
   "",
   "ur so kissable ehe",
   "",
-  "i need you to pin you badly"
+  "i need you to pin you badly",
+  "mark my body with your love"
 ];
 
 export default targetWords;
