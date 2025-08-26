@@ -48,6 +48,7 @@ const targetWords = [
   "delilah rose, how does your garden grow?",
   "",
   "ur so kissable ehe",
+  "",
   "i need you to pin you badly"
 ];
 
