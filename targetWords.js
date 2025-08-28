@@ -50,7 +50,8 @@ const targetWords = [
   "ur so kissable ehe",
   "",
   "i need you to pin you badly",
-  "mark my body with your love"
+  "mark my body with your love",
+  "seal the deal 🦭"
 ];
 
 export default targetWords;
