@@ -51,7 +51,8 @@ const targetWords = [
   "",
   "i need you to pin you badly",
   "mark my body with your love",
-  "seal the deal 🦭"
+  "seal the deal 🦭",
+  "let me lose myself with you"
 ];
 
 export default targetWords;
