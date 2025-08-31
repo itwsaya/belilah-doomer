@@ -53,7 +53,8 @@ const targetWords = [
   "mark my body with your love",
   "seal the deal 🦭",
   "let me lose myself with you",
-  "do you wanna go in your room"
+  "do you wanna go inside your room",
+  "im pregnant"
 ];
 
 export default targetWords;
