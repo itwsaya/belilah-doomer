@@ -54,6 +54,7 @@ const targetWords = [
   "seal the deal 🦭",
   "let me lose myself with you",
   "do you wanna go inside your room",
+  "",
   "im pregnant",
   "you're such a slut"
 ];
