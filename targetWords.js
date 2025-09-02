@@ -56,7 +56,8 @@ const targetWords = [
   "do you wanna go inside your room",
   "",
   "im pregnant",
-  "you're such a slut"
+  "you're such a slut",
+  "no hints here!"
 ];
 
 export default targetWords;
