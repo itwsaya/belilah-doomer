@@ -58,7 +58,8 @@ const targetWords = [
   "im pregnant",
   "you're such a slut",
   "no hints here!",
-  "do the bdsm test"
+  "do the bdsm test",
+  "i want you"
 ];
 
 export default targetWords;
