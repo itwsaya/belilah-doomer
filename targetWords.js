@@ -60,6 +60,7 @@ const targetWords = [
   "no hints here!",
   "do the bdsm test",
   "i want you",
+  "",
   "ucla baddies"
 ];
 
