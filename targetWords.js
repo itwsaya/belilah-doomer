@@ -61,7 +61,10 @@ const targetWords = [
   "do the bdsm test",
   "i want you",
   "",
-  "ucla baddies"
+  "ucla baddies",
+  "",
+  "",
+  "what an incredible sight today"
 ];
 
 export default targetWords;
