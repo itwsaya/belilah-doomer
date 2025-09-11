@@ -64,7 +64,8 @@ const targetWords = [
   "ucla baddies",
   "",
   "",
-  "what an incredible sight today"
+  "what an incredible sight today",
+  "do you want to smash"
 ];
 
 export default targetWords;
