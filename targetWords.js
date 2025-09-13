@@ -66,7 +66,8 @@ const targetWords = [
   "",
   "what an incredible sight today",
   "do you want to smash",
-  "silly goofy delilah"
+  "silly goofy delilah",
+  "notices bulge owo what's this"
 ];
 
 export default targetWords;
