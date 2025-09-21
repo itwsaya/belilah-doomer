@@ -72,7 +72,10 @@ const targetWords = [
   "it is very risque",
   "",
   "",
-  "giggles"
+  "giggles",
+  "",
+  "",
+  "slutty fucktoy"
 ];
 
 export default targetWords;
