@@ -75,6 +75,7 @@ const targetWords = [
   "giggles",
   "",
   "",
+  "",
   "slutty fucktoy"
 ];
 
