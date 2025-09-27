@@ -80,6 +80,7 @@ const targetWords = [
   "slutty fucktoy",
   "",
   "",
+  "",
   "bad bitch and a fat ass",
 ];
 
