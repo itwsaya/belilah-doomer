@@ -85,7 +85,8 @@ const targetWords = [
   "use me",
   "",
   "",
-  "bad bitch and a fat ass"
+  "bad bitch and a fat ass",
+  "aura farming"
 ];
 
 export default targetWords;
