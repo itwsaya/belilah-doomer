@@ -87,7 +87,9 @@ const targetWords = [
   "",
   "bad bitch and a fat ass",
   "aura farming",
-  "you're AWESOMEEEE"
+  "you're AWESOMEEEE",
+  "",
+  "ily"
 ];
 
 export default targetWords;
