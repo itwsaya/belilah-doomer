@@ -91,7 +91,12 @@ const targetWords = [
   "",
   "",
   "",
-  "ily"
+  "ily",
+  "networking and chill",
+  "scrabble queen",
+  "midnight and mona",
+  "antihistamines",
+  "cuddle buddy"
 ];
 
 export default targetWords;
