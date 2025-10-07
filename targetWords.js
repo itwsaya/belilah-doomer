@@ -89,6 +89,8 @@ const targetWords = [
   "aura farming",
   "you're AWESOMEEEE",
   "",
+  "",
+  "",
   "ily"
 ];
 
