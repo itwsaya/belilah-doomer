@@ -96,7 +96,7 @@ const targetWords = [
   "networking and chill",
   "scrabble queen",
   "",
-  "my squishable, loveable goofball"
+  "my squishable, loveable goofball",
   "midnight and mona",
   "antihistamines",
   "cuddle buddy"
