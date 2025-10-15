@@ -98,8 +98,10 @@ const targetWords = [
   "",
   "my squishable, loveable goofball",
   "midnight and mona",
-  "antihistamines",
-  "cuddle buddy"
+  "",
+  "cuddle buddy",
+  "",
+  "antihistamines"
 ];
 
 export default targetWords;
