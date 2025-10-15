@@ -100,7 +100,6 @@ const targetWords = [
   "midnight and mona",
   "",
   "cuddle buddy",
-  "",
   "antihistamines"
 ];
 
